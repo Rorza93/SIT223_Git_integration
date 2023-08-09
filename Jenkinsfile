@@ -24,6 +24,11 @@ pipeline{
                 echo "========executing Deploy========"
             }
         }
+        stage("Complete"){
+            steps{
+                echo "========executing Complete========"
+            }
+        }
     }
     post{
         always{
