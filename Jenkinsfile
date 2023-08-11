@@ -48,8 +48,7 @@ pipeline{
         always{
             mail to: "r.hambrook93@gmail.com",
                     subject: "Unit and Integration Tests: ${currentBuild.result}",
-                    body: 'Check the logs for details.'
-                    ${BUILD_LOG, maxLines, escapeHtml}
+                    body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS: Check console output at $BUILD_URL to view the results.'
                     
         }
         success{
