@@ -48,8 +48,7 @@ pipeline{
         always{
             mail to: "r.hambrook93@gmail.com",
                     subject: "Unit and Integration Tests: ${currentBuild.result}",
-                    body: 'Check the logs for details.',
-                    attachLog: true
+                    body: 'Check the logs for details.'
         }
         success{
             echo "========pipeline executed successfully ========"
