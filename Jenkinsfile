@@ -49,6 +49,8 @@ pipeline{
             mail to: "r.hambrook93@gmail.com",
                     subject: "Unit and Integration Tests: ${currentBuild.result}",
                     body: 'Check the logs for details.'
+                    ${BUILD_LOG, maxLines, escapeHtml}
+                    
         }
         success{
             echo "========pipeline executed successfully ========"
