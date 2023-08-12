@@ -26,11 +26,11 @@ pipeline{
             }
             post{
                 always{
-                    emailext (
-                        subject: 'Security Scan Status',
-                        to: 's223475476@deakin.edu.au',
-                        body: "${currentBuild.result}: Job ",
-                        attachLog: true,
+                    emailext(
+                        to: "r.hambrook93@gmail.com",
+                        subject: "Unit and integration tests email",
+                        body: "Testing was completed",
+                        attachLog: true
                     )
                 }
             }
@@ -48,11 +48,11 @@ pipeline{
             }
             post{
                 always{
-                    emailext (
-                        subject: 'Integration Tests on Staging Status',
-                        to: 's223475476@deakin.edu.au',
-                        body: "${currentBuild.result}: Job ",
-                        attachLog: true,
+                    emailext(
+                        to: "r.hambrook93@gmail.com",
+                        subject: "Unit and integration tests email",
+                        body: "Testing was completed!",
+                        attachLog: true
                     )
                 }
             }
