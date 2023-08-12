@@ -24,6 +24,16 @@ pipeline{
                 echo "This stage is to perform a security scan to identify any code vulnerabilities."
                 echo "Tools that we can use for this include OWASP Dependency-Check, Fortify, Veracode"
             }
+            post{
+                always{
+                    emailext (
+                        subject: 'Security Scan Status',
+                        to: 's223475476@deakin.edu.au',
+                        body: "${currentBuild.result}: Job ",
+                        attachLog: true,
+                    )
+                }
+            }
         }
         stage("5: Deploy to Staging"){
             steps{
@@ -35,6 +45,16 @@ pipeline{
             steps{
                 echo "This stage is to run integration tests on the staging environment to ensure the application functions in a production-like environment."
                 echo "Tools that we could use for this include Selenium for web interface testing, Postman for API testing, or similar tools tailored to your specific application."
+            }
+            post{
+                always{
+                    emailext (
+                        subject: 'Integration Tests on Staging Status',
+                        to: 's223475476@deakin.edu.au',
+                        body: "${currentBuild.result}: Job ",
+                        attachLog: true,
+                    )
+                }
             }
         }
         stage("7: Deploy to Production"){
