@@ -25,11 +25,19 @@ pipeline{
                 echo "Tools that we can use for this include OWASP Dependency-Check, Fortify, Veracode"
             }
             post{
-                always{
+                success{
                     emailext(
                         to: "r.hambrook93@gmail.com",
-                        subject: "Unit and integration tests email",
-                        body: "Testing was completed",
+                        subject: "Security Scan Success",
+                        body: "Testing was successful.",
+                        attachLog: true
+                    )
+                }
+                failure{
+                    emailext(
+                        to: "r.hambrook93@gmail.com",
+                        subject: "Security scan Failure",
+                        body: "Testing has failed",
                         attachLog: true
                     )
                 }
@@ -47,11 +55,19 @@ pipeline{
                 echo "Tools that we could use for this include Selenium for web interface testing, Postman for API testing, or similar tools tailored to your specific application."
             }
             post{
-                always{
+                success{
                     emailext(
                         to: "r.hambrook93@gmail.com",
-                        subject: "Unit and integration tests email",
-                        body: "Testing was completed!",
+                        subject: "Unit and integration test Success",
+                        body: "Testing was successful",
+                        attachLog: true
+                    )
+                }
+                failure{
+                    emailext(
+                        to: "r.hambrook93@gmail.com",
+                        subject: "Unit and integration test Failure",
+                        body: "Testing was a failure",
                         attachLog: true
                     )
                 }
