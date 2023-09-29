@@ -4,7 +4,7 @@ pipeline{
         stage("1: Build"){
             steps{
                 echo "This stage is to Compile and Package the code"
-                echo "Some tool we can use for this are Maven, Gradle or Ant"
+                echo "Some tool we can use for this are Maven, Gradle or Ant."
             }            
         }
         stage("2: Unit and Integration Tests"){
